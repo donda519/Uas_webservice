@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "7a590e17-825f-4066-8c0d-39c9372ae0a0",
+		"name": "Perpustakaan API",
+		"description": "Sebuah API Perpustakaan yang dibangun menggunakan Laravel Lumen. Ditujukan untuk management system aplikasi perpustakaan.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "10585571"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8003/api/register",
+				"description": "request API untuk registrasi user pengguna api."
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8003/api/login",
+				"description": "Request login untuk mendapatkan token."
+			},
+			"response": []
+		},
+		{
+			"name": "Add Author",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNzA1MTU0MDM3LCJleHAiOjE3MDUxNTc2MzcsIm5iZiI6MTcwNTE1NDAzNywianRpIjoiWmk4S2VoYmR0dktqS0FrOCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-XGly48iOJMfhafZJdZ7Ug-XXyJPLAY6O0PpOmYsq4A"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Tere Liye",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "tereliye@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "0823289989",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "-",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8003/api/author",
+				"description": "Request untuk menambahkan data author"
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Author",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8003/api/author",
+				"description": "Request untuk mendapatkan list author."
+			},
+			"response": []
+		},
+		{
+			"name": "Search Author by Name",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNzA1MTU0MDM3LCJleHAiOjE3MDUxNTc2MzcsIm5iZiI6MTcwNTE1NDAzNywianRpIjoiWmk4S2VoYmR0dktqS0FrOCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-XGly48iOJMfhafZJdZ7Ug-XXyJPLAY6O0PpOmYsq4A"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8003/api/author?search={name}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"author"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{name}"
+						}
+					]
+				},
+				"description": "Request untuk mencari data Author by name"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author by Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNzA1MTU0MDM3LCJleHAiOjE3MDUxNTc2MzcsIm5iZiI6MTcwNTE1NDAzNywianRpIjoiWmk4S2VoYmR0dktqS0FrOCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-XGly48iOJMfhafZJdZ7Ug-XXyJPLAY6O0PpOmYsq4A"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8003/api/author/1",
+				"description": "Mengambil data spesifik author"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNzA1MTU0MDM3LCJleHAiOjE3MDUxNTc2MzcsIm5iZiI6MTcwNTE1NDAzNywianRpIjoiWmk4S2VoYmR0dktqS0FrOCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-XGly48iOJMfhafZJdZ7Ug-XXyJPLAY6O0PpOmYsq4A"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Tere",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "tereliye@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "-",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8003/api/author/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"author",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				},
+				"description": "Update data spesifik author "
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNzA1MTU0MDM3LCJleHAiOjE3MDUxNTc2MzcsIm5iZiI6MTcwNTE1NDAzNywianRpIjoiWmk4S2VoYmR0dktqS0FrOCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-XGly48iOJMfhafZJdZ7Ug-XXyJPLAY6O0PpOmYsq4A"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8003/api/author/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"author",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				},
+				"description": "Request untuk menghapus data spesifik author"
+			},
+			"response": []
+		},
+		{
+			"name": "Api publisher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8003/api/publisher",
+				"description": "Untuk mengambil data publisher.\n\nSedangkan untuk add, update, delete mengikuti format seperti dokumentasi api Author."
+			},
+			"response": []
+		},
+		{
+			"name": "Api book",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8003/api/book",
+				"description": "request api book\n\nuntuk crate, update, delete mengikuti format API Author"
+			},
+			"response": []
+		},
+		{
+			"name": "Api Category",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8003/api/category",
+				"description": "API Category\n\nUntuk create, update, delete mengikuti format API Author"
+			},
+			"response": []
+		},
+		{
+			"name": "Api Book Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNzA1MTYxNDE0LCJleHAiOjE3MDUxNjUwMTQsIm5iZiI6MTcwNTE2MTQxNCwianRpIjoieWk3bTRFN3k5MmZacTBWTiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.FyulMTntSu7w4InmyDUWrUR0iHlE9rZquQSRs7D9xg4"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "isbn",
+							"value": "978-602-03-8373-6",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Negeri Para Bedebah",
+							"type": "text"
+						},
+						{
+							"key": "cover",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "year",
+							"value": "2012",
+							"type": "text"
+						},
+						{
+							"key": "publisher_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "author_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "qty",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "5000",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8003/api/book",
+				"description": "Api untuk add book "
+			},
+			"response": []
+		},
+		{
+			"name": "Api Transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNzA1MTYxNDE0LCJleHAiOjE3MDUxNjUwMTQsIm5iZiI6MTcwNTE2MTQxNCwianRpIjoieWk3bTRFN3k5MmZacTBWTiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.FyulMTntSu7w4InmyDUWrUR0iHlE9rZquQSRs7D9xg4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8003/api/transaction",
+				"description": "Request untuk data transaction\n\nUntuk create, update, delete mengikuti format API Author"
+			},
+			"response": []
+		},
+		{
+			"name": "API Member",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNzA1MTYxNDE0LCJleHAiOjE3MDUxNjUwMTQsIm5iZiI6MTcwNTE2MTQxNCwianRpIjoieWk3bTRFN3k5MmZacTBWTiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.FyulMTntSu7w4InmyDUWrUR0iHlE9rZquQSRs7D9xg4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8003/api/member",
+				"description": "Request data member.\n\nUntuk create, update, delete mengikuti format API Author"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNzA1MjIwNTY5LCJleHAiOjE3MDUyMjQxNjksIm5iZiI6MTcwNTIyMDU2OSwianRpIjoic2NObm10eUoxYnYwYmdwYiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.XmWYxfCAW8kDQQ8w8e-pTpUmGH95zC317n74dFgy-KA"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8003/api/logout"
+			},
+			"response": []
+		}
+	]
+}
